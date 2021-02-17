@@ -1,16 +1,16 @@
+<h3 align="center">I'm a Front End Web Developer.<h3>
+<p align="center">I'm ever studing tenologic, doing working at Mobidick  and other projects.</p>
+<p align="center">I currently passionate about JAMstack, Progressive Web Apps, Headless CMS, S.E.O, Web Performance ane outhers stuff...</p>
 
-[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg' alt='github' height='40'>](https://github.com/thailoeduardo)  
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=thailoeduardo)](https://github.com/ryo-ma/github-profile-trophy)
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=thailoeduardo)](https://github.com/anuraghazra/github-readme-stats)
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=thailoeduardo&show_icons=true&count_private=true)  
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=thailoeduardo&show_icons=true&theme=radical&count_private=true&hide_border=true&locale=pt-br)](https://github.com/anuraghazra/github-readme-stats)
 
-![GitHub Activity Graph](https://activity-graph.herokuapp.com/graph?username=thailoeduardo)  
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=thailoeduardo&show_icons=true&theme=radical&count_private=true&locale=pt-br)](https://github.com/anuraghazra/github-readme-stats)
 
-![GitHub metrics](https://metrics.lecoq.io/thailoeduardo)  
+![Profile views](https://gpvc.arturio.dev/thailoeduardo)
 
 ![GitHub streak stats](https://github-readme-streak-stats.herokuapp.com/?user=thailoeduardo)  
 
-![Profile views](https://gpvc.arturio.dev/thailoeduardo)  
+![Profile views](https://gpvc.arturio.dev/thailoeduardo)
