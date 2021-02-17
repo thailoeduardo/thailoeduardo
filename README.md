@@ -1,4 +1,4 @@
-<h3 align="center">I'm a Front End Web Developer.<h3>
+<h3 align="center">I'm a Front End Web Developer.</h3>
 <p align="center">I'm ever studing tenologic, doing working at Mobidick  and other projects.</p>
 <p align="center">I currently passionate about JAMstack, Progressive Web Apps, Headless CMS, S.E.O, Web Performance ane outhers stuff...</p>
 
