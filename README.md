@@ -105,4 +105,5 @@ I currently passionate about JAMstack, Progressive Web Apps, Headless CMS, S.E.O
 
 
 ![Snake animation](https://github.com/thailoeduardo/thailoeduardo/blob/output/github-contribution-grid-snake.svg)
+
 ![GitHub Snake dark](github-snake-dark.svg#gh-dark-mode-only)
