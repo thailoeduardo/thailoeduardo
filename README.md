@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="https://github.com/thailoeduardo/thailoeduardo/blob/main/thailo-github-wallpapper.png" />
   <h1>Thailo Eduardo C. Dutra</h1>
 
   ![Snake animation](https://github.com/thailoeduardo/thailoeduardo/blob/output/github-contribution-grid-snake.svg)
