@@ -103,3 +103,6 @@ I currently passionate about JAMstack, Progressive Web Apps, Headless CMS, S.E.O
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=thailoeduardo&show_icons=true&theme=radical&count_private=true&locale=pt-br)](https://github.com/anuraghazra/github-readme-stats)
 
+
+![Snake animation](https://github.com/thailoeduardo/thailoeduardo/blob/output/github-contribution-grid-snake.svg)
+![GitHub Snake dark](github-snake-dark.svg#gh-dark-mode-only)
