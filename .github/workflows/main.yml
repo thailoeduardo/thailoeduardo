@@ -1,18 +1,11 @@
-name: generate animation
+name: Generate Datas
 
 on:
   # run automatically every 6 hours
   schedule:
-    - cron: "0 */8 * * *" 
-  
-  # allows to manually run the job at any time
+    - cron: "0 */8 * * *"
   workflow_dispatch:
-  
-  # run on every push on the master branch
-  push:
-    branches:
-    - main
- 
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -24,8 +17,6 @@ jobs:
         uses: Platane/snk/svg-only@v2
         with:
           github_user_name: ${{ github.repository_owner }}
-			    palette: github-dark
-					# color_snake: #1c1c1c
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
