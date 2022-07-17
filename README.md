@@ -1,9 +1,10 @@
-# Thailo Eduardo C. Dutra
+<div align="center">
+  <h1>Thailo Eduardo C. Dutra</h1>
+  
+  ![Snake animation](https://github.com/thailoeduardo/thailoeduardo/blob/output/github-contribution-grid-snake.svg)
 
-### I'm Developer...
-I'm ever studing tenologic, doing working at Mobidick  and other projects.
-I currently passionate about JAMstack, Progressive Web Apps, Headless CMS, S.E.O, Web Performance ane outhers stuff...
-![visitors](https://visitor-badge.glitch.me/badge?page_id=thailoeduardo.thailoeduardo&left_color=green&right_color=red)
+  ![visitors](https://visitor-badge.glitch.me/badge?page_id=thailoeduardo.thailoeduardo&left_color=green&right_color=red)
+</div>
 
 ## Where to find me
 ![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)
@@ -104,6 +105,3 @@ I currently passionate about JAMstack, Progressive Web Apps, Headless CMS, S.E.O
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=thailoeduardo&show_icons=true&theme=radical&count_private=true&locale=pt-br)](https://github.com/anuraghazra/github-readme-stats)
 
 
-![Snake animation](https://github.com/thailoeduardo/thailoeduardo/blob/output/github-contribution-grid-snake.svg)
-
-![GitHub Snake dark](github-snake-dark.svg#gh-dark-mode-only)
