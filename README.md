@@ -42,5 +42,5 @@
 
 
 <div align="center">
-  <a href="https://app.daily.dev/DailyDevTips"><img src="https://github.com/thailoeduardo/thailoeduardo/blob/main/devcard.svg" width="400" alt="Thailo Eduardo Dev Card"/></a>
+  <a href="https://app.daily.dev/thailoeduardo"><img src="https://github.com/thailoeduardo/thailoeduardo/blob/main/devcard.svg" width="400" alt="Thailo Eduardo Dev Card"/></a>
 </div>
