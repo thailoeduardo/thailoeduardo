@@ -1,25 +1,23 @@
 <div align="center">
   <img src="https://github.com/thailoeduardo/thailoeduardo/blob/main/thailo-github-wallpapper.png" />
-  <br>
-  <br>
   
-  [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:thailoeduardo@gmail.com)
-  [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/0555199288845)
-  [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/thailoeduardo)
-    
-  <hr>
+  <h1 align="center">Hi, I'm Thailo Eduardo 👋</h1>
+  <h3 align="center">A Full-Stack Developer</h3>
   
-  ![visitor badge](https://komarev.com/ghpvc/?username=thailoeduardo&style=for-the-badge)
-  ![GitHub followers](https://img.shields.io/github/followers/thailoeduardo?color=orange&style=for-the-badge)
-  ![GitHub User's stars](https://img.shields.io/github/stars/thailoeduardo?color=green&style=for-the-badge)
-  ![GitHub watchers](https://img.shields.io/github/watchers/thailoeduardo/thailoeduardo?color=yellow&style=for-the-badge)
-  ![Twitter Follow](https://img.shields.io/twitter/follow/thailo_eduardo?style=for-the-badge)
+   <p>Develop digital solutions. My passion is turning visions into reality and taking <br/>businesses and individuals to the next level through technology.<br/>
+   Let's work together to transform your business and achieve extraordinary results.<br/>
+   Follow me and discover how technological innovation can drive your success!</p>
+ 
+  [![LINKS](https://img.shields.io/badge/Where%20can%20you%20contact%20me-brightgreen?style=for-the-badge)](https://thailo-eduardo-links.vercel.app)
+  
+  <hr>  
+  
 </div>
-
-![Snake animation](https://github.com/thailoeduardo/thailoeduardo/blob/output/github-contribution-grid-snake.svg)
 
 <div align="center">
 
+![Snake animation](https://github.com/thailoeduardo/thailoeduardo/blob/output/github-contribution-grid-snake.svg)
+  
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
@@ -38,9 +36,4 @@
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
-</div>
-
-
-<div align="center">
-  <a href="https://app.daily.dev/thailoeduardo"><img src="https://github.com/thailoeduardo/thailoeduardo/blob/main/devcard.svg" width="400" alt="Thailo Eduardo Dev Card"/></a>
 </div>
