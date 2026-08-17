@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de stacks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #08070d; }
+    body { font-family: "Inter", Arial, sans-serif; }
+    svg { display: block; width: 100%; height: 100%; cursor: grab; }
+    svg.panning { cursor: grabbing; }
+    .node { cursor: grab; }
+    .node.dragging { cursor: grabbing; }
+    .node rect, .node circle { fill: #15131e; stroke: #777287; stroke-width: 2; transition: fill .2s, stroke .2s, filter .2s; }
+    .node:hover rect, .node:hover circle { fill: #24202e; stroke: #fce300; filter: drop-shadow(0 0 8px rgba(252, 227, 0, .35)); }
+    .node-title { fill: #f5f5f5; font-family: "Inter", Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: .1px; }
+    .tech-title { fill: #f5f5f5; font-family: "Inter", Arial, sans-serif; font-size: 10px; font-weight: 700; }
+    .category-title { fill: #f5f5f5; font-family: "Inter", Arial, sans-serif; font-size: 15px; font-weight: 700; }
+    .node-label { fill: #a7a1b3; font-size: 12px; }
+    .node-icon { fill: #00f0ff; font-size: 25px; font-weight: 700; }
+    .node-icon.yellow { fill: #fce300; }
+    .line { fill: none; stroke: #8e8999; stroke-width: 2; }
+    .line.dashed { stroke-dasharray: 6 6; }
+    .connector { fill: #b8b3c2; }
+    .caption { fill: #a7a1b3; font-size: 11px; }
+    .map-controls { position: fixed; right: 16px; bottom: 16px; display: grid; gap: 6px; z-index: 2; }
+    .map-controls button { width: 34px; height: 34px; border: 1px solid #777287; background: #15131e; color: #f5f5f5; font-size: 20px; line-height: 1; cursor: pointer; }
+    .map-controls button:hover { border-color: #fce300; color: #fce300; }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 1200 700" role="img" aria-labelledby="mapTitle mapDesc" preserveAspectRatio="xMidYMid meet">
+    <title id="mapTitle">Fluxo das tecnologias de Thailo Eduardo</title>
+    <desc id="mapDesc">Um diagrama inspirado em automações que conecta CMS, backend, frontend e dados à entrega de soluções digitais.</desc>
+    <defs>
+      <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="1" fill="#3a3448" opacity=".55" />
+      </pattern>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L9,3 z" fill="#b8b3c2" />
+      </marker>
+    </defs>
+    <rect class="canvas" x="-100000" y="-100000" width="200000" height="200000" fill="url(#grid)" />
+    <!-- <text x="44" y="52" class="caption">/// Stack</text> -->
+
+    <path class="line" data-edge="brief-delivery" marker-end="url(#arrow)" />
+    <path class="line" data-edge="delivery-integration" marker-end="url(#arrow)" />
+    <path class="line" data-edge="integration-solution" marker-end="url(#arrow)" />
+    <path class="line dashed" data-edge="delivery-cms" /><path class="line dashed" data-edge="delivery-backend" /><path class="line dashed" data-edge="delivery-frontend" /><path class="line dashed" data-edge="delivery-data" />
+    <path class="line dashed" data-edge="cms-wordpress" /><path class="line dashed" data-edge="cms-drupal" /><path class="line dashed" data-edge="cms-strapi" />
+    <path class="line dashed" data-edge="backend-php" /><path class="line dashed" data-edge="backend-laravel" /><path class="line dashed" data-edge="backend-nodejs" /><path class="line dashed" data-edge="backend-python" />
+    <path class="line dashed" data-edge="frontend-javascript" /><path class="line dashed" data-edge="frontend-nextjs" /><path class="line dashed" data-edge="frontend-vuejs" /><path class="line dashed" data-edge="frontend-tailwind" /><path class="line dashed" data-edge="frontend-htmx" /><path class="line dashed" data-edge="frontend-alpine" />
+    <path class="line dashed" data-edge="data-neon" /><path class="line dashed" data-edge="data-supabase" /><path class="line dashed" data-edge="data-docker" /><path class="line dashed" data-edge="data-postgresql" />
+
+    <!-- <g class="node" data-node="brief">
+      <rect x="70" y="225" width="160" height="120" rx="16" />
+      <text x="150" y="277" text-anchor="middle" class="node-icon yellow">✦</text>
+      <text x="150" y="310" text-anchor="middle" class="node-title">IDEIA / BRIEFING</text>
+      <text x="150" y="330" text-anchor="middle" class="node-label">ponto de partida</text>
+    </g>
+    <circle class="connector" cx="230" cy="285" r="7" /> -->
+
+    <g class="node" data-node="delivery">
+      <rect x="350" y="122" width="260" height="146" rx="16" />
+      <!-- <text x="386" y="180" class="node-icon">&lt;/&gt;</text> -->
+      <text x="480" y="176" text-anchor="middle" class="node-title">FULL-STACK</text>
+      <text x="480" y="201" text-anchor="middle" class="node-label">arquitetura, código e produto</text>
+      <!-- <text x="386" y="242" class="caption">conecta as camadas do projeto</text> -->
+    </g>
+    <circle class="connector" cx="610" cy="195" r="7" />
+
+    <g class="node" data-node="integration">
+      <rect x="730" y="135" width="180" height="120" rx="16" />
+      <text x="820" y="185" text-anchor="middle" class="node-icon yellow">⇄</text>
+      <text x="820" y="220" text-anchor="middle" class="node-title">INTEGRAÇÃO</text>
+      <text x="820" y="240" text-anchor="middle" class="node-label">APIs e automações</text>
+    </g>
+    <circle class="connector" cx="910" cy="195" r="7" />
+
+    <g class="node" data-node="solution">
+      <rect x="990" y="135" width="160" height="120" rx="16" />
+      <text x="1070" y="185" text-anchor="middle" class="node-icon yellow">✓</text>
+      <text x="1070" y="220" text-anchor="middle" class="node-title">SOLUÇÃO</text>
+      <text x="1070" y="240" text-anchor="middle" class="node-label">produto escalável</text>
+    </g>
+
+    <g class="node" data-node="cms"><circle cx="160" cy="350" r="50" /><text x="160" y="355" text-anchor="middle" class="category-title">CMS</text></g>
+    <g class="node" data-node="backend"><circle cx="390" cy="340" r="50" /><text x="390" y="345" text-anchor="middle" class="category-title">BACKEND</text></g>
+    <g class="node" data-node="frontend"><circle cx="610" cy="350" r="50" /><text x="610" y="355" text-anchor="middle" class="category-title">FRONTEND</text></g>
+    <g class="node" data-node="data"><circle cx="1000" cy="350" r="50" /><text x="1000" y="355" text-anchor="middle" class="category-title">DADOS</text></g>
+
+    <g class="node" data-node="wordpress"><rect x="35" y="443" width="90" height="34" rx="7" /><text x="80" y="465" text-anchor="middle" class="tech-title">WORDPRESS</text></g><g class="node" data-node="drupal"><rect x="75" y="528" width="90" height="34" rx="7" /><text x="120" y="550" text-anchor="middle" class="tech-title">DRUPAL</text></g><g class="node" data-node="strapi"><rect x="215" y="458" width="90" height="34" rx="7" /><text x="260" y="480" text-anchor="middle" class="tech-title">STRAPI</text></g>
+    <g class="node" data-node="php"><rect x="455" y="383" width="90" height="34" rx="7" /><text x="500" y="405" text-anchor="middle" class="tech-title">PHP</text></g><g class="node" data-node="laravel"><rect x="285" y="448" width="90" height="34" rx="7" /><text x="330" y="470" text-anchor="middle" class="tech-title">LARAVEL</text></g><g class="node" data-node="nodejs"><rect x="425" y="488" width="90" height="34" rx="7" /><text x="470" y="510" text-anchor="middle" class="tech-title">NODE.JS</text></g><g class="node" data-node="python"><rect x="325" y="558" width="90" height="34" rx="7" /><text x="370" y="580" text-anchor="middle" class="tech-title">PYTHON</text></g>
+    <g class="node" data-node="javascript"><rect x="695" y="368" width="90" height="34" rx="7" /><text x="740" y="390" text-anchor="middle" class="tech-title">JAVASCRIPT</text></g><g class="node" data-node="nextjs"><rect x="635" y="568" width="90" height="34" rx="7" /><text x="680" y="590" text-anchor="middle" class="tech-title">NEXT.JS</text></g><g class="node" data-node="vuejs"><rect x="645" y="438" width="90" height="34" rx="7" /><text x="690" y="460" text-anchor="middle" class="tech-title">VUE.JS</text></g><g class="node" data-node="tailwind"><rect x="735" y="623" width="90" height="34" rx="7" /><text x="780" y="645" text-anchor="middle" class="tech-title">TAILWIND</text></g><g class="node" data-node="htmx"><rect x="705" y="503" width="90" height="34" rx="7" /><text x="750" y="525" text-anchor="middle" class="tech-title">HTMX</text></g><g class="node" data-node="alpine"><rect x="545" y="613" width="90" height="34" rx="7" /><text x="590" y="635" text-anchor="middle" class="tech-title">ALPINE.JS</text></g>
+    <g class="node" data-node="neon"><rect x="1065" y="443" width="90" height="34" rx="7" /><text x="1110" y="465" text-anchor="middle" class="tech-title">NEON</text></g><g class="node" data-node="supabase"><rect x="1035" y="528" width="90" height="34" rx="7" /><text x="1080" y="550" text-anchor="middle" class="tech-title">SUPABASE</text></g><g class="node" data-node="docker"><rect x="855" y="463" width="90" height="34" rx="7" /><text x="900" y="485" text-anchor="middle" class="tech-title">DOCKER</text></g><g class="node" data-node="postgresql"><rect x="885" y="553" width="90" height="34" rx="7" /><text x="930" y="575" text-anchor="middle" class="tech-title">POSTGRESQL</text></g>
+  </svg>
+  <div class="map-controls" aria-label="Controles do mapa">
+    <button type="button" id="zoomIn" aria-label="Aumentar zoom">+</button>
+    <button type="button" id="zoomOut" aria-label="Diminuir zoom">−</button>
+    <button type="button" id="zoomReset" aria-label="Redefinir posição e zoom">⟲</button>
+  </div>
+  <script>
+    (function () {
+      var svg = document.querySelector("svg");
+      var viewBox = { x: 0, y: 0, width: 1200, height: 700 };
+      var nodes = {
+        brief: { x: 150, y: 285, width: 160, height: 120, shape: "rect" },
+        delivery: { x: 480, y: 195, width: 260, height: 146, shape: "rect" },
+        integration: { x: 820, y: 195, width: 180, height: 120, shape: "rect" },
+        solution: { x: 1070, y: 195, width: 160, height: 120, shape: "rect" },
+        cms: { x: 155, y: 350, radius: 50, shape: "circle" }, backend: { x: 440, y: 350, radius: 50, shape: "circle" }, frontend: { x: 725, y: 350, radius: 50, shape: "circle" }, data: { x: 1010, y: 350, radius: 50, shape: "circle" },
+        wordpress: { x: 155, y: 455, width: 130, height: 36, shape: "rect" }, drupal: { x: 155, y: 535, width: 130, height: 36, shape: "rect" }, strapi: { x: 155, y: 615, width: 130, height: 36, shape: "rect" }, php: { x: 440, y: 430, width: 130, height: 36, shape: "rect" }, laravel: { x: 440, y: 500, width: 130, height: 36, shape: "rect" }, nodejs: { x: 440, y: 570, width: 130, height: 36, shape: "rect" }, python: { x: 440, y: 640, width: 130, height: 36, shape: "rect" },
+        javascript: { x: 725, y: 400, width: 130, height: 36, shape: "rect" }, nextjs: { x: 725, y: 455, width: 130, height: 36, shape: "rect" }, vuejs: { x: 725, y: 510, width: 130, height: 36, shape: "rect" }, tailwind: { x: 725, y: 565, width: 130, height: 36, shape: "rect" }, htmx: { x: 725, y: 620, width: 130, height: 36, shape: "rect" }, alpine: { x: 725, y: 675, width: 130, height: 36, shape: "rect" },
+        neon: { x: 1010, y: 430, width: 130, height: 36, shape: "rect" }, supabase: { x: 1010, y: 500, width: 130, height: 36, shape: "rect" }, docker: { x: 1010, y: 570, width: 130, height: 36, shape: "rect" }, postgresql: { x: 1010, y: 640, width: 130, height: 36, shape: "rect" }
+      };
+      Object.assign(nodes, {
+        cms: { x: 160, y: 350, radius: 50, shape: "circle" }, backend: { x: 390, y: 340, radius: 50, shape: "circle" }, frontend: { x: 610, y: 350, radius: 50, shape: "circle" }, data: { x: 1000, y: 350, radius: 50, shape: "circle" },
+        wordpress: { x: 80, y: 460, width: 90, height: 34, shape: "rect" }, drupal: { x: 120, y: 545, width: 90, height: 34, shape: "rect" }, strapi: { x: 260, y: 475, width: 90, height: 34, shape: "rect" },
+        php: { x: 500, y: 400, width: 90, height: 34, shape: "rect" }, laravel: { x: 330, y: 465, width: 90, height: 34, shape: "rect" }, nodejs: { x: 470, y: 505, width: 90, height: 34, shape: "rect" }, python: { x: 370, y: 575, width: 90, height: 34, shape: "rect" },
+        javascript: { x: 740, y: 385, width: 90, height: 34, shape: "rect" }, nextjs: { x: 680, y: 585, width: 90, height: 34, shape: "rect" }, vuejs: { x: 690, y: 455, width: 90, height: 34, shape: "rect" }, tailwind: { x: 780, y: 640, width: 90, height: 34, shape: "rect" }, htmx: { x: 750, y: 520, width: 90, height: 34, shape: "rect" }, alpine: { x: 590, y: 630, width: 90, height: 34, shape: "rect" },
+        neon: { x: 1110, y: 460, width: 90, height: 34, shape: "rect" }, supabase: { x: 1080, y: 545, width: 90, height: 34, shape: "rect" }, docker: { x: 900, y: 480, width: 90, height: 34, shape: "rect" }, postgresql: { x: 930, y: 570, width: 90, height: 34, shape: "rect" }
+      });
+      var connections = {
+        "brief-delivery": ["brief", "delivery"],
+        "delivery-integration": ["delivery", "integration"],
+        "integration-solution": ["integration", "solution"],
+        "delivery-cms": ["delivery", "cms"], "delivery-backend": ["delivery", "backend"], "delivery-frontend": ["delivery", "frontend"], "delivery-data": ["delivery", "data"],
+        "cms-wordpress": ["cms", "wordpress"], "cms-drupal": ["cms", "drupal"], "cms-strapi": ["cms", "strapi"], "backend-php": ["backend", "php"], "backend-laravel": ["backend", "laravel"], "backend-nodejs": ["backend", "nodejs"], "backend-python": ["backend", "python"], "frontend-javascript": ["frontend", "javascript"], "frontend-nextjs": ["frontend", "nextjs"], "frontend-vuejs": ["frontend", "vuejs"], "frontend-tailwind": ["frontend", "tailwind"], "frontend-htmx": ["frontend", "htmx"], "frontend-alpine": ["frontend", "alpine"], "data-neon": ["data", "neon"], "data-supabase": ["data", "supabase"], "data-docker": ["data", "docker"], "data-postgresql": ["data", "postgresql"]
+      };
+
+      Object.keys(nodes).forEach(function (name) {
+        var node = nodes[name];
+        node.originX = node.x;
+        node.originY = node.y;
+        node.element = svg.querySelector('[data-node="' + name + '"]');
+        if (!node.element) delete nodes[name];
+      });
+
+      function edgePoint(node, target) {
+        var dx = target.x - node.x;
+        var dy = target.y - node.y;
+        var distance = Math.hypot(dx, dy) || 1;
+        var factor;
+        if (node.shape === "circle") {
+          factor = node.radius / distance;
+        } else {
+          factor = 1 / Math.max(Math.abs(dx) / (node.width / 2), Math.abs(dy) / (node.height / 2), 1);
+        }
+        return { x: node.x + dx * factor, y: node.y + dy * factor };
+      }
+
+      function updateGraph() {
+        Object.keys(nodes).forEach(function (name) {
+          var node = nodes[name];
+          node.element.setAttribute("transform", "translate(" + (node.x - node.originX) + " " + (node.y - node.originY) + ")");
+        });
+
+        Object.keys(connections).forEach(function (edgeName) {
+          var edge = connections[edgeName];
+          var source = nodes[edge[0]];
+          var target = nodes[edge[1]];
+          if (!source || !target) return;
+          var start = edgePoint(source, target);
+          var end = edgePoint(target, source);
+          var curve = (end.x - start.x) * .42;
+          var edgeElement = svg.querySelector('[data-edge="' + edgeName + '"]');
+          if (edgeElement) edgeElement.setAttribute("d", "M" + start.x + " " + start.y + " C" + (start.x + curve) + " " + start.y + " " + (end.x - curve) + " " + end.y + " " + end.x + " " + end.y);
+        });
+      }
+
+      function applyViewBox() {
+        svg.setAttribute("viewBox", viewBox.x + " " + viewBox.y + " " + viewBox.width + " " + viewBox.height);
+      }
+
+      function pointerPosition(event) {
+        var point = svg.createSVGPoint();
+        point.x = event.clientX;
+        point.y = event.clientY;
+        return point.matrixTransform(svg.getScreenCTM().inverse());
+      }
+
+      function zoom(factor, focus) {
+        var nextWidth = Math.max(280, Math.min(3600, viewBox.width * factor));
+        var ratio = nextWidth / viewBox.width;
+        var nextHeight = viewBox.height * ratio;
+        viewBox.x = focus.x - (focus.x - viewBox.x) * ratio;
+        viewBox.y = focus.y - (focus.y - viewBox.y) * ratio;
+        viewBox.width = nextWidth;
+        viewBox.height = nextHeight;
+        applyViewBox();
+      }
+
+      var activeNode;
+      var startPointer;
+      var startPosition;
+
+      Object.keys(nodes).forEach(function (name) {
+        var node = nodes[name];
+        if (!node.element) return;
+        node.element.addEventListener("pointerdown", function (event) {
+          activeNode = node;
+          startPointer = pointerPosition(event);
+          startPosition = { x: node.x, y: node.y };
+          node.element.classList.add("dragging");
+          node.element.setPointerCapture(event.pointerId);
+          event.preventDefault();
+          event.stopPropagation();
+        });
+      });
+
+      var panPointer;
+      svg.addEventListener("pointerdown", function (event) {
+        if (event.button !== 0 || (event.target.closest && event.target.closest(".node"))) return;
+        panPointer = { x: event.clientX, y: event.clientY };
+        svg.classList.add("panning");
+        svg.setPointerCapture(event.pointerId);
+        event.preventDefault();
+      });
+
+      svg.addEventListener("pointermove", function (event) {
+        if (activeNode) {
+          var pointer = pointerPosition(event);
+          activeNode.x = startPosition.x + pointer.x - startPointer.x;
+          activeNode.y = startPosition.y + pointer.y - startPointer.y;
+          updateGraph();
+        } else if (panPointer) {
+          var matrix = svg.getScreenCTM();
+          viewBox.x -= (event.clientX - panPointer.x) / matrix.a;
+          viewBox.y -= (event.clientY - panPointer.y) / matrix.d;
+          panPointer = { x: event.clientX, y: event.clientY };
+          applyViewBox();
+        }
+      });
+
+      function stopInteraction() {
+        if (activeNode) {
+          activeNode.element.classList.remove("dragging");
+          activeNode = null;
+        }
+        panPointer = null;
+        svg.classList.remove("panning");
+      }
+
+      svg.addEventListener("pointerup", stopInteraction);
+      svg.addEventListener("pointercancel", stopInteraction);
+      svg.addEventListener("wheel", function (event) {
+        event.preventDefault();
+        zoom(event.deltaY > 0 ? 1.12 : .88, pointerPosition(event));
+      }, { passive: false });
+
+      document.getElementById("zoomIn").addEventListener("click", function () { zoom(.88, { x: viewBox.x + viewBox.width / 2, y: viewBox.y + viewBox.height / 2 }); });
+      document.getElementById("zoomOut").addEventListener("click", function () { zoom(1.12, { x: viewBox.x + viewBox.width / 2, y: viewBox.y + viewBox.height / 2 }); });
+      document.getElementById("zoomReset").addEventListener("click", function () {
+        viewBox = { x: 0, y: 0, width: 1200, height: 700 };
+        applyViewBox();
+      });
+      updateGraph();
+    }());
+  </script>
+</body>
+</html>
