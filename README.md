@@ -23,18 +23,14 @@
 
 <hr/>
 
-<iframe class="stack-map-frame" src="stack-map.html" title="Mapa das tecnologias de Thailo Eduardo" loading="lazy"></iframe>
-
-<hr/>
-
-## 📊 GitHub Stats
+## GitHub Stats
 
 <div align="center">
   <img height="180em" src="profile/stats.svg" alt="GitHub Stats" />
   <img height="180em" src="profile/top-langs.svg" alt="Top Languages" />
 </div>
 
-## 🐍 Contribution Snake
+## Contribution Snake
 
 <div align="center">
   <picture>
@@ -44,7 +40,7 @@
   </picture>
 </div>
 
-## 🛠️ Technologies & Tools
+## Technologies & Tools
 
 <div align="center">
   <img src="https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white" alt="WordPress" />
@@ -66,7 +62,7 @@
   <img src="https://img.shields.io/badge/Vue.js-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D" alt="Vue.js" />
 </div>
 
-## 📫 Connect with me
+## onnect with me
 
 <div align="center">
   <a href="https://www.linkedin.com/in/thailo-eduardo-costa-dutra-86a536165/">
@@ -91,9 +87,3 @@
     <img src="https://img.shields.io/badge/-Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
 </div>
-
-<hr/>
-
-<p align="center">
-  Made with ❤️ by <a href="https://github.com/thailoeduardo">Thailo Eduardo</a>
-</p>
