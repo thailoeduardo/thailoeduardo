@@ -23,6 +23,10 @@
 
 <hr/>
 
+<iframe class="stack-map-frame" src="stack-map.html" title="Mapa das tecnologias de Thailo Eduardo" loading="lazy"></iframe>
+
+<hr/>
+
 ## 📊 GitHub Stats
 
 <div align="center">
