@@ -15,7 +15,19 @@ jobs:
   devcard:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
       - name: devcard
         uses: dailydotdev/action-devcard@2.0.2
         with:
           devcard_id: ${{ secrets.DEVCARD_ID }}
+          dryrun: true
+
+      - name: commit devcard
+        run: |
+          git config user.name "Thailo Eduardo"
+          git config user.email "thailoeduardo@gmail.com"
+          git add devcard.svg
+          git commit -m "Update devcard.svg" || exit 0
+          git push
